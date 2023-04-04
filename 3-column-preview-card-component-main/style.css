@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+html {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+}
+
+.container {
+    display: flex;
+    max-height: 600px;
+    max-width: 1100px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    font-size: 15px;
+    border-radius: 15px;
+}
+
+.left-section, .middle-section, .right-section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33.3%;
+    color: white;
+}
+
+img {
+    height: 50px;
+}
+
+.left-content, .middle-content, .right-content {
+    margin: 15%;
+}
+
+#left-title, #middle-title, #right-title {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 3.2rem;
+    margin: 10% 0 10% 0;
+}
+
+#left-text, #middle-text, #right-text {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color:hsla(0, 0%, 100%, 0.75);
+    line-height: 30px;
+}
+
+.left-section {
+    background-color: hsl(31, 77%, 52%);
+    border-radius: 15px 0 0 15px;
+}
+
+.middle-section {
+    background-color: hsl(184, 100%, 22%);
+}
+
+.right-section {
+    background-color: hsl(179, 100%, 13%);
+    border-radius: 0 15px 15px 0;
+}
+
+button {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 95%);
+    border: none;
+    margin-top: 45%;
+    height: 12%;
+    width: 75%;
+    border-radius: 30px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+#sedans-button:hover, #suvs-button:hover, #luxury-button:hover {
+    color:white;
+    border: 3px solid white;
+}
+
+#sedans-button {
+    color:hsl(31, 77%, 52%);
+}
+
+
+#sedans-button:hover {
+    background-color: hsl(31, 77%, 52%);
+}
+
+#suvs-button {
+    color: hsl(184, 100%, 22%);
+}
+
+#suvs-button:hover {
+    background-color: hsl(184, 100%, 22%);
+}
+
+#luxary-button {
+    color: hsl(179, 100%, 13%);
+}
+
+#luxury-button:hover {
+    background-color: hsl(179, 100%, 13%);
+}
+
+@media (max-width: 740px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 15%;
+        box-shadow: none;
+    }
+
+    .left-section, .middle-section, .right-section {
+        border-radius: 15px;
+        max-height: 380px;
+    }
+
+    #right-title, #left-title, #middle-title {
+        font-size: 2rem;
+    }
+
+    #left-text, #middle-text, #right-text {
+        font-size: 0.7rem;
+        line-height: 1.2rem;
+    }
+
+    button {
+        font-size: 0.8rem;
+        height: 3em;
+        margin-top: 15%;
+    }
+}
