@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
 
 body {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 24px 165px 0 165px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: #83869A;
-    /* background: url(assets/image-hero-desktop.webp) no-repeat;
-    background-size: 60%;
-    background-position: 120% -200px; */
-    background: linear-gradient(180deg, #FFFFFF 0%, #F0F1FF 100%);
+    overflow-x: hidden;
 }
 
-/* ========== HEADER NAV ======== */
+.wrapper {
+    padding: 24px 165px 0 165px;
+    margin: 0 auto;
+    max-width: 1440px;
+}
 
-.header button {
+button {
     cursor: pointer;
     color: #fff;
 }
+
+/* ========== HEADER NAV ======== */
 
 .header__nav {
     display: flex;
@@ -30,23 +31,40 @@ body {
     height: 28px;
 }
 
-.nav_button {
+.nav_btn {
     width: 167px;
     height: 56px;
     background: #13183F;
     border-radius: 28px;
-    color: #fff;
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
 }
 
+.nav_btn:hover {
+    background: #666CA3;
+}
+
 /* ========== HEADER CONTENT CONTAINER ======== */
 
 .header__container {
+    display: flex;
+}
+
+.header__hero_img {
+    position: absolute;
+    right: -80px;
+    top: -150px;
+    z-index: -1;
+    width: 991.63px;
+    height: 936.92px;
+}
+
+.content {
     max-width: 457px;
     max-height: 359px;
 }
+
 
 .content__title {
     font-weight: 800;
@@ -72,6 +90,11 @@ body {
     font-weight: 700;
     font-size: 18px;
     line-height: 156%;
+}
+
+.container__btn:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                linear-gradient(180deg, #FF6F48 0%, #F02AA6 100%);
 }
 
 /* ========== MAIN COURSES TABLET ======== */
@@ -142,4 +165,115 @@ body {
     line-height: 156%;
     color: #F74780;
     text-decoration: none;
+}
+
+.course__link:hover {
+    color: #FFA7C3;
+}
+
+/* ========== FOOTER ======== */
+
+.footer {
+    background-color: #13183F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 120px;
+    padding: 32px 165px;
+}
+
+.footer__logo {
+    height: 28px;
+}
+
+.footer__btn {
+    width: 167px;
+    height: 56px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    background: linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.footer__btn:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                linear-gradient(180deg, #4851FF -54.32%, #F02AA6 100%);
+}
+
+
+@media (max-width: 1335px) {
+
+    .header__hero_img {
+        opacity: 0.5;
+        transition: 1s ease-out;
+    }
+
+    .content__subtitle {
+        color:#13183F
+    }
+
+    .footer {
+        padding: 36px 16px;
+    }
+}
+
+@media (max-width: 1029px) {
+    .wrapper {
+        padding: 16px;
+    }
+
+    .header__container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content__title {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .content__subtitle {
+        font-size: 16px;
+    line-height: 162%;
+    color: #83869A;
+    }
+
+    .main {
+        margin-top: 66px;
+    }
+
+    .course__intro {
+        max-height: 120px;
+        font-size: 24px;
+        padding: 24px 28px;
+    }
+ 
+    .header__hero_img {
+        content: url(assets/image-hero-mobile.webp);
+        opacity: 1;
+        position: relative;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        margin-top: 46px;
+    }
+
+    .tablet__container ul {
+        justify-content: center;
+    }
+
+    .footer__logo {
+        max-height: 35px;
+        max-width: 89px;
+    }
+
+    .footer__btn {
+        height: 48px;
+        width: 140px;
+        font-size: 16px;
+    }
 }
