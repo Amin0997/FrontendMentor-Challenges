@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-ExtraBold.ttf);
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(assets/fonts/Poppins-ExtraBoldItalic.ttf);
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F0F0;
+}
+
+.container {
+    max-width: 840px;
+    max-height: 650px;
+    padding: 56px;
+    background-color: #fff;
+}
+
+/* ========= INPUT SECTION ========== */
+
+.birthday__input {
+    display: flex;
+    font-family: 'Poppins';
+    width: 728px;
+}
+
+.birthday__month {
+    margin: 0 32px;
+}
+
+.birthday__input p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.25em;
+    color: #716F6F;
+    margin-bottom: 8px;
+}
+
+.birthday__input input {
+    max-width: 160px;
+    max-height: 72px;
+    padding: 12px 24px;
+    border: 1px solid #DCDCDC;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #151515;
+}
+
+/* ========== SUBMIT SECTION ========== */
+
+#submit__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+    background: #854DFF;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+#submit__btn:hover {
+    background: #151515;
+    transition: 0.1s ease-in-out;
+}
+
+#submit__btn:active {
+    position: relative;
+    top: 3px;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.submit__line {
+    border: 1px solid #DCDCDC;
+    width: 100%;
+}
+
+/* ========== OUTPUT SECTION ========== */
+
+.output__full_age {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 104px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+.output__full_age span {
+    color: black;
+}
+
+.output__full_age p {
+    color: #854DFF;
+}
