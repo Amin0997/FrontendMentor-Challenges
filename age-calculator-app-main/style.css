@@ -53,6 +53,8 @@ body {
     max-height: 650px;
     padding: 56px;
     background-color: #fff;
+    border-radius: 20px;
+    border-bottom-right-radius: 150px;
 }
 
 /* ========= INPUT SECTION ========== */
@@ -140,4 +142,9 @@ body {
 
 .output__full_age p {
     color: #854DFF;
+}
+
+.output {
+    display: flex;
+    gap: 10px;
 }

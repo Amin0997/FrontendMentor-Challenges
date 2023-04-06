@@ -13,34 +13,41 @@
         <section class="birthday__input">
             <div class="birthday__day">
                 <p>DAY</p>
-                <input type="text" name="" id="" placeholder="DD">
+                <input class="birthday__input--day" type="text" name="" id="" placeholder="DD">
+                <p class="error__day-message"></p>
             </div>
             <div class="birthday__month">
                 <p>MONTH</p>
-                <input type="text" name="" id="" placeholder="MM">
+                <input class="birthday__input--month" type="text" name="" id="" placeholder="MM">
+                <p class="error__month-message"></p>
             </div>
             <div class="birthday__year">
                 <p>YEAR</p>
-                <input type="text" name="" id="" placeholder="YYYY">
+                <input class="birthday__input--year" type="text" name="" id="" placeholder="YYYY">
+                <p class="error__year-message"></p>
             </div>
         </section>
 
         <section class="submit">
             <div class="submit__line"></div>
-            <button id="submit__btn"><img src="assets/images/icon-arrow.svg" alt=""></button>
+            <button id="submit__btn" onclick="submit()" ><img src="assets/images/icon-arrow.svg" alt=""></button>
         </section>
 
         <section class="output__full_age">
-            <div class="output__years">
-                <p>- -<span> years</span></p>
+            <div class="output__years output">
+                <p>--</p>
+                <span> years</span>
             </div>
-            <div class="output__months">
-                <p>- -<span> months</span></p>
+            <div class="output__months output">
+                <p>--</p>
+                <span> months</span>
             </div>
-            <div class="output__days">
-                <p>- -<span> days</span></p>
+            <div class="output__days output">
+                <p>--</p>
+                <span> days</span>
             </div>
         </section>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
