@@ -50,7 +50,7 @@ body {
 
 .container {
     max-width: 840px;
-    max-height: 650px;
+    max-height: 680px;
     padding: 56px;
     background-color: #fff;
     border-radius: 20px;
@@ -69,7 +69,7 @@ body {
     margin: 0 32px;
 }
 
-.birthday__input p {
+.birthday__input-text {
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
@@ -78,7 +78,7 @@ body {
     margin-bottom: 8px;
 }
 
-.birthday__input input {
+.date-input {
     max-width: 160px;
     max-height: 72px;
     padding: 12px 24px;
@@ -147,4 +147,23 @@ body {
 .output {
     display: flex;
     gap: 10px;
+}
+
+/* ========== ERRORS SECTION ========== */
+.invalid-input {
+    margin-top: 8px;
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FF5959;
+}
+
+.color-red {
+    color: #FF5959
+}
+
+.border-red {
+    border: 1px solid #FF5959;
 }

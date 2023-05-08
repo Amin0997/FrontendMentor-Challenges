@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    min-height: 100vh;
+    width: 1440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./images/bg-main-desktop.png) no-repeat;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1050px;
+    height: 530px;
+}
+
+/* ==================== CARDS VIEWS ==================== */
+
+.card__views {
+    display: flex;
+    flex-direction: column;
+    width: 541px;
+    height: 527px;
+}
+
+/* == FRONT VIEW == */
+
+.card__front-view {
+    width: 447px;
+    height: 245px;
+    align-self: flex-start;
+    margin-bottom: 37px;
+    background-image: url(./images/bg-card-front.png);
+    background-repeat: no-repeat;
+    padding: 28px 32px;
+    color: #fff;
+}
+
+.card__front-number {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: 3.5px;
+    margin-top: 64px;
+    margin-bottom: 25px;
+}
+
+.card__name-and-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* == BACK VIEW == */
+
+.card__back-view {
+    width: 447px;
+    height: 245px;
+    align-self: flex-end;
+    background-image: url(./images/bg-card-back.png);
+    background-repeat: no-repeat;
+}
+
+.card__back-cvc {
+    position: relative;
+    left: 80%;
+    top: 45%;
+    color: #fff;
+}
+
+/* ==================== INPUTS ==================== */
+
+.data-input__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 381px;
+}
+
+.data__title {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #21092F;
+    margin-top: 29px;
+    margin-bottom: 9px;
+}
+
+.data-input__section input {
+    border: 1px solid #DFDEE0;
+    border-radius: 8px;
+    width: 381px;
+    height: 45px;
+    padding-left: 16px;
+}
+
+.data-input__section input::placeholder {
+    font-size: 18px;
+    line-height: 23px;
+    color: #21092F;
+    opacity: 0.25;
+}
+
+.data-input__date-and-cvc {
+    display: flex;
+    margin-bottom: 51px;
+}
+
+.data__mm-yy {
+    display: flex;
+    gap: 10px;
+}
+
+.data__mm-yy input {
+    width: 80px;
+    height: 45px;
+    padding-left: 16px;
+}
+
+.data__cvc input {
+    width: 191px;
+    height: 45px;
+    padding-left: 16px;
+    margin-left: 20px;
+}
+
+.cvc-title, .cvc-error {
+    margin-left: 20px;
+}
+
+/* ==================== ERRORS ==================== */
+
+.error-msg {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF5050;
+    margin-top: 10px;
+}
+
+.confirm_btn {
+    width: 100%;
+    height: 53px;
+    background: #21092F;
+    border-radius: 8px;
+
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+

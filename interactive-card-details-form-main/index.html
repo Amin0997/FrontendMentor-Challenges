@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Interactive Card</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-container">
+
+            <section class="card__views">
+                <div class="card__front-view">
+                    <img class="card__logo_img" src="./images/card-logo.svg" alt="">
+                    <p class="card__front-number">0000 0000 0000 0000</p>
+                    <div class="card__name-and-date">
+                        <p class="card__front-name">jane appleseed</p>
+                        <p class="card__front-date">00/00</p>
+                    </div>
+                </div>
+    
+                <div class="card__back-view">
+                    <p class="card__back-cvc">000</p>
+                </div>
+            </section>
+    
+            <form class="data-input__section" action="#">
+    
+                <section class="data-input__name-and-number">
+
+                    <div class="data__name">
+                        <p class="data__title">Cardholder Name</p>
+                        <input class="name_input" type="text" placeholder="e.g. Jane Appleseed">
+                        <p class="name-error error-msg"></p>
+                    </div>
+                    
+                    <div class="data__card-number">
+                        <p class="data__title card-number">Card Number</p>
+                        <input class="card-number_input" type="text" placeholder="e.g. 1234 5678 9123 0000">
+                        <p class="number-error error-msg"></p>
+                    </div>
+
+                </section>
+                
+                <section class="data-input__date-and-cvc">
+
+                    <div class="data__date">
+                        <p class="data__title">Exp. Date (MM/YY)</p>
+                        <div class="data__mm-yy">
+                            <input class="month_input" type="text" placeholder="MM" maxlength="2">
+                            <input class="year_input" type="text" placeholder="YY" maxlength="2">
+                        </div>
+                        <p class="date-error error-msg"></p>
+                    </div>
+                    
+                    <div class="data__cvc">
+                        <p class="data__title cvc-title">cvc</p>
+                        <input class="input_cvc" type="text" placeholder="e.g. 123">
+                        <p class="cvc-error error-msg"></p>
+                    </div>
+                </section>
+                 
+                <button onclick="runAll()" class="confirm_btn" type="submit">Confirm</button>
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

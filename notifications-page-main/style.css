@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url(assets/fonts/static/PlusJakartaSans-Medium.ttf);
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url(assets/fonts/static/PlusJakartaSans-ExtraBold.ttf);
+    font-style:normal;
+    font-weight: 800;
+    font-display: swap;
+}
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F7FAFD;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 730px;
+    max-height: 840px;
+    padding: 33px 30px 0 30px;
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 500;
+    font-size: 16px;
+    color: #5E6778;
+    box-shadow: 0px 20px 60px rgba(73, 97, 168, 0.05);
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+/* ========== SPAN COLORS ========== */
+
+.notification-name {
+    color: #1C202B;
+    font-weight: 800;
+    margin-right: 5px;
+}
+
+.blue_txt {
+    color: #0A327B;
+    font-weight: 800;
+}
+
+.grey_blue-txt {
+    color: #5E6778;
+    font-weight: 800;
+    margin-left: 3px;
+}
+
+/* ========== HEADER SECTION ========== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 31px;
+}
+
+.header__box {
+    display: flex;
+    align-items: center;
+}
+
+.header__notifitacion {
+    font-size: 24px;
+    line-height: 30px;
+    margin-right: 11px;
+}
+
+.header__counter {
+    padding-top: 2px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    background: #0A327B;
+    border-radius: 6px;
+    height: 25px;
+    width: 32px;
+}
+
+.header__mark-reader {
+    line-height: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========== NOTIFICATION SECTION ========== */
+
+.notification__box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    min-height: 80px;
+    border-radius: 8px;
+}
+
+.avatar_img {
+    height: 45px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.your_picture_img {
+    height: 45px;
+    margin-left: 27%;
+}
+
+.visited-time {
+    margin-top: 3px;
+}
+
+.comment-box {
+    border: 1px solid #DDE7EE;
+    border-radius: 5px;
+    margin-top: 13px;
+    padding: 20px;
+    max-width: 566px;
+    min-height: 97px;
+}
+
+.comment-box:hover {
+    background-color: #E5EFFA;
+    cursor: pointer;
+}
+
+.rizky-hassanuddin_box .avatar_img {
+    align-self: flex-start;
+}
+
+.mark-webber_box, .angela-gray_box, .jacob-tompson_box {
+    background-color: #F7FAFD
+}
+
+
+.not-readed_mark {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    background-color: #F65552;
+    border-radius: 50%;
+    margin-left: 6px;
+    margin-top: -3%;
+}
