@@ -22,7 +22,8 @@ weeklyBtn.addEventListener('click', ()=> {
 })
 
 monthlyBtn.addEventListener('click', ()=> {
-    y.current + 'hrs';
+    for (let i=0;i<allTotalTime.length; i++) {
+        allTotalTime[i].textContent = dataJson[i].timeframes.monthly.current + 'hrs';
         allLastTime[i].textContent = 'Last Month - ' + dataJson[i].timeframes.monthly.previous + 'hrs';
     }
 })
