@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+body {
+    background-color: #0E1323;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1440px;
+    min-height: 100vh;
+    font-family: 'Rubik';
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(200px, 255px));
+    grid-template-rows: repeat(2, 244px);
+    grid-template-areas: 
+    'user work play study'
+    'user exercise social self-care';
+    gap: 30px;
+    color: #FFFFFF;
+}
+
+
+/* ===== User section ===== */
+
+.user__container {
+    display: flex;
+    flex-direction: column;
+    background-color: #1C204B;
+    grid-area: user;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 255px;
+}
+
+.user__info {
+    background-color: #5747ea;
+    border-radius: 15px;
+    padding: 37px;
+    max-height: 354px;
+}
+
+.user-avatar {
+    width: 78px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+.user__report-txt {
+    color: #BBC0FF;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 40px 0 80px;
+}
+
+.user__name {
+    color: #fff;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+.buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    margin: 26px 0 32px 32px;
+
+}
+
+.date-btn {
+    width: fit-content;
+    background: none;
+    border: none;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #7078C9;
+    cursor: pointer;
+}
+
+.date-btn:hover {
+    color: #FFF;
+}
+/* ===== Activity-box section ===== */
+
+.activity-box {
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-position: 90% -6%;
+}
+
+.front-box {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 30px;
+    top: 50px;
+    background: #1C204B;
+    border-radius: 15px;
+}
+
+.activity-box__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity-box__name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.ellipsis-img {
+    width: 25px;
+    fill: #D8D8D8;
+    cursor: pointer;
+}
+
+.ellipsis-img:hover {
+    fill: #fff;
+}
+
+.total-time {
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 66px;
+    margin-top: 24px;
+}
+
+.last-time {
+    margin-top: 8px;
+    color: #BBC0FF;
+}
+
+/* ============================================================ */
+
+.work__container {
+    grid-area: work;
+    background-color: #FF8B64;
+    background-image: url(./images/icon-work.svg);
+}
+
+.play__container {
+    grid-area: play;
+    background-color: #55C2E6;
+    background-image: url(./images/icon-play.svg);
+    background-position-y: -3%;
+}
+.study__container {
+    grid-area: study;
+    background-color: #FF5E7D;
+    background-image: url(./images/icon-study.svg);
+    background-position-y:-1%;
+}
+.exercise__container {
+    grid-area: exercise;
+    background-color: #4BCF82;
+    background-image: url(./images/icon-exercise.svg);
+    background-position-y: 0%;
+}
+.social__container {
+    grid-area: social;
+    background-color: #7335D2;
+    background-image: url(./images/icon-social.svg);
+}
+.self-care__container {
+    grid-area: self-care;
+    background-color: #F1C75B;
+    background-image: url(./images/icon-self-care.svg);
+}

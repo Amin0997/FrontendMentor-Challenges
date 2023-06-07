@@ -7,7 +7,7 @@ const yearInput = document.querySelector('.year_input')
 // INPUTS CORRECTION
 
 inputCardholderName.addEventListener('input', function(event) {
-    const cardName = event.target.value.replace(/[^a-zA-Z ]/g, '');
+    const cardName = event.target.value.replace(/[^a-zA-Z]/g, '');
     event.target.value = cardName;
 });
   
@@ -31,7 +31,7 @@ inputCardholderName.addEventListener('input', function(event) {
     event.target.value = cvcNum;
 });
 
-// CHECH FUNCTIONS
+// CHECK FUNCTIONS
 
 function checkNumber() {
     const outputCardNumber = document.querySelector('.card__front-number');
@@ -49,7 +49,7 @@ function checkNumber() {
     }
     else{
         inputCardNumber.style.border = '1px solid red';
-        numberError.innerHTML = 'Wrong format, not enogh numbers';
+        numberError.innerHTML = 'Wrong format, not enough numbers';
     }
 }
 
