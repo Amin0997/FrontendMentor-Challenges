@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+body {
+    background-color: #0E1323;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1440px;
+    min-height: 100vh;
+    font-family: 'Rubik';
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(4, minmax(200px, 255px));
+    grid-template-rows: repeat(2, 244px);
+    grid-template-areas: 
+    'user work play study'
+    'user exercise social self-care';
+    gap: 30px;
+    color: #FFFFFF;
+}
+
+/* ========================================================= */
+
+.work__container {
+    grid-area: work;
+    background-color: #FF8B64;
+    /* background-image: url(./images/icon-work.svg); */
+}
+
+.play__container {
+    grid-area: play;
+    background-color: #55C2E6;
+    /* background-image: url(./images/icon-play.svg); */
+    background-position-y: -3%;
+}
+
+.study__container {
+    grid-area: study;
+    background-color: #FF5E7D;
+    /* background-image: url(./images/icon-study.svg); */
+    background-position-y:-1%;
+}
+
+.exercise__container {
+    grid-area: exercise;
+    background-color: #4BCF82;
+    /* background-image: url(./images/icon-exercise.svg); */
+    background-position-y: 0%;
+}
+
+.social__container {
+    grid-area: social;
+    background-color: #7335D2;
+    /* background-image: url(./images/icon-social.svg); */
+}
+
+.self-care__container {
+    grid-area: self-care;
+    background-color: #F1C75B;
+    /* background-image: url(./images/icon-self-care.svg); */
+}

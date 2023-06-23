@@ -1,0 +1,89 @@
+.activity-box {
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-position: 90% -6%;
+}
+
+.front-box {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 30px;
+    top: 50px;
+    background: #1C204B;
+    border-radius: 15px;
+}
+
+.activity-box__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.activity-box__name {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.ellipsis-img {
+    width: 25px;
+    fill: #D8D8D8;
+    cursor: pointer;
+}
+
+.ellipsis-img:hover {
+    fill: #fff;
+}
+
+.total-time {
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 66px;
+    margin-top: 24px;
+}
+
+.last-time {
+    margin-top: 8px;
+    color: #BBC0FF;
+}
+
+.work__container {
+    grid-area: work;
+    background-image: url('../../img/icon-work.svg');
+}
+
+.play__container {
+    grid-area: play;
+    background-image: url('../../img/icon-play.svg');
+    background-position-y: -3%;
+}
+.study__container {
+    grid-area: study;
+    background-image: url('../../img/icon-study.svg');
+    background-position-y:-1%;
+}
+.exercise__container {
+    grid-area: exercise;
+    background-image: url('../../img/icon-exercise.svg');
+    background-position-y: 0%;
+}
+.social__container {
+    grid-area: social;
+    background-image: url('../../img/icon-social.svg');
+}
+.self-care__container {
+    grid-area: self-care;
+    background-image: url('../../img/icon-self-care.svg');
+}
+
+.total-time, .last-time {
+    /* animation: flip 2s infinite; */
+    /* animation-delay: calc(.2s * var(--i)) */
+}
+
+@keyframes flip {
+    0%,80% {
+    transform: rotateY(360deg) 
+    }
+}
