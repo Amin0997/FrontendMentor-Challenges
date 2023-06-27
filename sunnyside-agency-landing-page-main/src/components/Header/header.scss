@@ -1,0 +1,26 @@
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px 48px 0 40px;
+}
+
+
+.header {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../images/desktop/image-header.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header__logo {
+    scale: 1.4;
+}
+
+@media (max-width: 750px) {
+    .header {
+        background-image: url('../../images/mobile/image-header.jpg');
+    }
+}
