@@ -1,0 +1,13 @@
+.thirdSection {
+  display: flex;
+  align-items: center;
+  margin-top: 116px;
+  margin-bottom: 123px;
+}
+
+.thirdSectionImg {
+  width: 950px;
+  height: 750px;
+  flex-shrink: 0;
+  margin-left: -20%;
+}/*# sourceMappingURL=ThirdSection.css.map */

@@ -1,0 +1,125 @@
+.header__links {
+  display: flex;
+  align-items: center;
+}
+.header__links a {
+  text-decoration: none;
+  color: #fff;
+  opacity: 1;
+}
+.header__links li:last-child a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  line-height: 25px;
+  letter-spacing: -0.107px;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: black;
+  border-radius: 28px;
+  width: 140px;
+  height: 56px;
+  flex-shrink: 0;
+  transition: 0.3s ease;
+}
+.header__links li:last-child a:hover {
+  background-color: rgba(255, 255, 255, 0.4392156863);
+  color: #fff;
+}
+.header__links li:not(:first-child) {
+  margin-left: 47px;
+}
+.header__links li:not(:last-child) {
+  position: relative;
+  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: -0.129px;
+}
+.header__links li:not(:last-child):hover {
+  scale: 1.3;
+  transition: 0.25s;
+}
+.header__links li:not(:last-child) :hover::before {
+  transform: scaleX(1);
+  transition: transform 0.25s;
+}
+.header__links li:not(:last-child) ::before {
+  content: "";
+  width: 100%;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+.burger_btn {
+  display: none;
+  position: relative;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+.burger_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+}
+.burger_btn span {
+  position: absolute;
+  top: 8px;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+}
+.burger_btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+}
+
+@media (max-width: 750px) {
+  .header__links {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    width: 330px;
+    height: 330px;
+    gap: 32px;
+  }
+  .header__links li:not(:first-child) {
+    margin-left: 0px;
+  }
+  .header__links a {
+    color: #808397;
+  }
+  .header__links li:last-child a {
+    background-color: #FBD600;
+  }
+  .burger_btn {
+    display: flex;
+    top: 0;
+    left: 0;
+  }
+  .show-menu {
+    display: flex;
+  }
+}/*# sourceMappingURL=navBar.css.map */

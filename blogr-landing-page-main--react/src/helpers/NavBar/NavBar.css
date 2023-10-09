@@ -1,0 +1,38 @@
+.navBar {
+  display: flex;
+  align-items: center;
+}
+
+.navBar__btns_list {
+  display: flex;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+}
+
+.navBar__links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  text-decoration: none;
+}
+.navBar__links > * {
+  text-decoration: none;
+}
+
+.navBar__login {
+  color: #FFF;
+  text-align: right;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  opacity: 0.75;
+}
+
+.navBar__sign-up {
+  background: #FFF;
+  color: #FF505C;
+}/*# sourceMappingURL=NavBar.css.map */

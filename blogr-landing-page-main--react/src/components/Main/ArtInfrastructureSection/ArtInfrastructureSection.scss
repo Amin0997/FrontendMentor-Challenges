@@ -1,0 +1,22 @@
+.art-Infrastructure {
+    height: 400px;
+    display: flex;
+
+    border-radius: 0px 100px;
+    background: url('../../../images/bg-pattern-circles.svg') no-repeat bottom left,
+                linear-gradient(135deg, #2D2E40 0%, #3F4164 100%);
+}
+
+.art-Infrastructure__img {
+    margin-left: 173px;
+    width: 472px;
+    height: 550px;
+    flex-shrink: 0;
+    margin-top: -3%;
+}
+
+.art-Infrastructure__title-and-text {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}

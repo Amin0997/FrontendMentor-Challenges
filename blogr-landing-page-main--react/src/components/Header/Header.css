@@ -1,0 +1,47 @@
+.header {
+  min-height: 600px;
+  padding: 63px 167px;
+  border-radius: 0px 0px 0px 100px;
+  background: url("../../images/bg-pattern-intro-desktop.svg") left no-repeat, linear-gradient(135deg, #FF8F71 0%, #FF3E55 100%);
+}
+
+.header__title {
+  color: #FFF;
+  text-align: center;
+  font-family: Overpass;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.92px;
+  margin-top: 119px;
+}
+
+.header__subtitle {
+  color: #FFF;
+  text-align: center;
+  font-family: Overpass;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 42px;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+}
+
+.header__start-for-free {
+  color: #FF505C;
+  background-color: #fff;
+}
+
+.header__learn-more {
+  color: #fff;
+  border: 1px solid #fff;
+}/*# sourceMappingURL=Header.css.map */

@@ -1,0 +1,35 @@
+[
+    {   
+        "topBorderColor": "hsl(208, 92%, 53%)",
+        "icon": "./src/assets/images/icon-facebook.svg",
+        "nickname": "@nathanf",
+        "followers": "1987",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "dailyChange": "12"
+    },
+    {   
+        "topBorderColor": "hsl(203, 89%, 53%)",
+        "icon": "./src/assets/images/icon-twitter.svg",
+        "nickname": "@nathanf",
+        "followers": "1044",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "dailyChange": "99"
+    },
+    {   
+        "topBorderColor": "hsl(37, 97%, 70%)",
+        "icon": "./src/assets/images/icon-instagram.svg",
+        "nickname": "@realnathanf",
+        "followers": "11k",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "dailyChange": "1099"
+    },
+    {   
+        "topBorderColor": "hsl(348, 97%, 39%)",
+        "icon": "./src/assets/images/icon-youtube.svg",
+        "nickname": "Nathan F.",
+        "followers": "8239",
+        "dailyChangeArrow": "./src/assets/images/icon-down.svg",
+        "dailyChange": "144"
+    },
+    
+]

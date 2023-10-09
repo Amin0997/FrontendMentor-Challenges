@@ -1,0 +1,36 @@
+.designed-for-the-future {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 57px;
+}
+
+.designed-for-the-future__title {
+    margin-top: 150px;
+    margin-bottom: 93px;
+
+    color: #1F3E5A;
+    font-family: Overpass;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -1.2px;
+    text-align: center;
+}
+
+.title-and-text__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 700px;
+    margin-left: 165px;
+    row-gap: 64px;
+}
+
+.designedSectionImg {
+    width: 880px;
+    height: 880px;
+
+    margin-left: 7%;
+    margin-top: -12%;
+}

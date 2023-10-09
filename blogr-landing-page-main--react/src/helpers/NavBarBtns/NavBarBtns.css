@@ -1,0 +1,15 @@
+.nav-bar__btn {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  color: #FFF;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}/*# sourceMappingURL=NavBarBtns.css.map */

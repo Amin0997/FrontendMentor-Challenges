@@ -1,0 +1,26 @@
+.ckeckbox__toggle::before {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.2s;
+
+}
+
+.ckeckbox__input:checked + .ckeckbox__toggle {
+    background-color: hsl(174, 86%, 45%);
+    transition: 0.2s;
+    &::before {
+        transform: translateX(20px);
+    }
+}
+
+
+.ckeckbox__toggle {
+    &:hover {
+        transition: 0.2s;
+        background-color: hsl(174, 77%, 80%);
+    }
+}

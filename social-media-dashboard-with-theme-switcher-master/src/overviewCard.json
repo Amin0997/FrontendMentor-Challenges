@@ -1,0 +1,59 @@
+[
+    {
+        "cardTitle": "Page Views",
+        "cardIcon": "./src/assets/images/icon-facebook.svg",
+        "cardCounter": "87",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "cardDailyChange": "3%"
+    },
+    {
+        "cardTitle": "Likes",
+        "cardIcon": "./src/assets/images/icon-facebook.svg",
+        "cardCounter": "52",
+        "dailyChangeArrow": "./src/assets/images/icon-down.svg",
+        "cardDailyChange": "2%"
+    },
+    {
+        "cardTitle": "Likes",
+        "cardIcon": "./src/assets/images/icon-instagram.svg",
+        "cardCounter": "5462",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "cardDailyChange": "2257%"
+    },
+    {
+        "cardTitle": "Profile Views",
+        "cardIcon": "./src/assets/images/icon-instagram.svg",
+        "cardCounter": "52k",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "cardDailyChange": "1375%"
+    },
+    {
+        "cardTitle": "Retweets",
+        "cardIcon": "./src/assets/images/icon-twitter.svg",
+        "cardCounter": "117",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "cardDailyChange": "303%"
+    },
+    {
+        "cardTitle": "Likes",
+        "cardIcon": "./src/assets/images/icon-twitter.svg",
+        "cardCounter": "507",
+        "dailyChangeArrow": "./src/assets/images/icon-up.svg",
+        "cardDailyChange": "553%"
+    },
+    {
+        "cardTitle": "Likes",
+        "cardIcon": "./src/assets/images/icon-youtube.svg",
+        "cardCounter": "107",
+        "dailyChangeArrow": "./src/assets/images/icon-down.svg",
+        "cardDailyChange": "19%"
+    },
+    {
+        "cardTitle": "Total Views",
+        "cardIcon": "./src/assets/images/icon-youtube.svg",
+        "cardCounter": "1407",
+        "dailyChangeArrow": "./src/assets/images/icon-down.svg",
+        "cardDailyChange": "12%"
+    }
+
+]

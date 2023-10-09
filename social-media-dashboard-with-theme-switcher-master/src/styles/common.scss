@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.wrapper {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.darkTheme {
+    background-color: hsl(230, 17%, 14%);
+}
+
+.lightTheme {
+    .wrapper {
+        background-color: #fff;
+    }
+
+    .header {
+        background-color: #fff;
+
+        &::before {
+            background-color: hsl(225, 100%, 98%);
+        }
+
+        .main-title, .followers-counter {
+            color: black;
+        }
+
+        .mode-switch h4 {
+            color: black;
+        }
+
+        
+        .main-card__total-followers-counter {
+            color: hsl(230, 17%, 14%);
+            
+            span {
+                color: hsl(228, 12%, 44%);
+            }
+        }
+    }
+
+    .main-card, .overview-card {
+        background-color: hsl(227, 47%, 96%);
+        color:hsl(230, 17%, 14%);
+
+        .main-card__daily-followers_counter {
+            font-weight: 700;
+        }
+
+        &:hover {
+            background-color: hsl(228, 15%, 87%);
+        }
+    }
+
+    .main {
+        background-color: #fff;
+
+        .main__title {
+            color:hsl(230, 17%, 14%);
+        }
+    }
+
+    .overview-card {
+        font-weight: 400;
+    }
+
+
+}

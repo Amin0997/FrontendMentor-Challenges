@@ -1,0 +1,52 @@
+.header {
+  position: relative;
+  z-index: 1;
+  padding: 30px 161px;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 245px;
+  background-color: hsl(232, 19%, 15%);
+  z-index: -1;
+}
+
+.title-and-switch {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-title {
+  font-size: 31px;
+  color: #fff;
+  letter-spacing: -1.6px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.followers-counter {
+  color: hsl(228, 34%, 66%);
+  opacity: 80%;
+  letter-spacing: -0.8px;
+  font-weight: 700;
+}
+
+.cards-section {
+  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}/*# sourceMappingURL=Header.css.map */

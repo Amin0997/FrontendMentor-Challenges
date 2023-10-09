@@ -1,0 +1,39 @@
+.header__title-and-arrow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__title {
+  text-align: center;
+  margin-top: 120px;
+  color: #FFF;
+  font-size: 56px;
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  letter-spacing: 8.75px;
+  text-transform: uppercase;
+}
+
+.header__arrow-down_img {
+  animation-name: arrow-down;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@media (max-width: 750px) {
+  .header__title {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+@keyframes arrow-down {
+  from {
+    margin-top: 50px;
+  }
+  to {
+    margin-top: 150px;
+  }
+}/*# sourceMappingURL=HeaderTitleAndArrow.css.map */

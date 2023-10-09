@@ -1,0 +1,62 @@
+.main-card {
+  width: 255px;
+  height: 215px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(228, 28%, 20%);
+  border-radius: 5px;
+  border-top: 5px solid;
+  font-weight: 700;
+  cursor: pointer;
+}
+.main-card:hover {
+  background-color: hsl(231, 23%, 24%);
+}
+
+.social-media__nickname,
+.main-card__total-followers-counter span {
+  color: hsl(228, 34%, 66%);
+  opacity: 80%;
+}
+
+.social-media__nickname {
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.main-card__total-followers-counter {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 55px;
+  color: #fff;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+.main-card__total-followers-counter span {
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.social-media__nickname,
+.main-card__daily-followers_counter {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  font-weight: 400;
+}
+
+.main-card__daily-followers_counter {
+  color: hsl(163, 72%, 41%);
+  font-size: 14px;
+  display: flex;
+}
+
+.arrow-up {
+  margin-top: 5px;
+}/*# sourceMappingURL=MainCard.css.map */

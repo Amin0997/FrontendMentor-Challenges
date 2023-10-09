@@ -1,0 +1,43 @@
+.overview-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.overview-card {
+    width: 255px;
+    height: 125px;
+    padding: 25px 25px;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: hsl(228, 28%, 20%);
+    color: #fff;
+    row-gap: 18px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+        background-color: hsl(231, 23%, 24%);
+    }
+}
+
+.overview-card__social-media_img {
+    justify-self: end;
+}
+
+.overview-card__counter {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.overview-card__daily-change {
+    display: flex;
+    align-items: center;
+    color: hsl(163, 72%, 41%);
+    column-gap: 5px;
+    justify-self: end;
+}

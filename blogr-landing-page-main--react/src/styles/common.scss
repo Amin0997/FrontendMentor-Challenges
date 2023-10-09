@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
+
+body {
+    overflow-x: hidden;
+}
+
+.header-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 137px;
+    height: 48px;
+    border-radius: 28px;
+    
+    text-decoration: none;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

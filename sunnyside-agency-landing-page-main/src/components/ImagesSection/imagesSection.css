@@ -1,0 +1,20 @@
+.images-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #83dfcc;
+  flex-wrap: wrap;
+}
+.images-section > * {
+  height: 447px;
+}
+
+@media (max-width: 750px) {
+  .images-section > * {
+    height: 300px;
+  }
+}
+@media (max-width: 485px) {
+  .images-section > * {
+    height: 188px;
+  }
+}/*# sourceMappingURL=imagesSection.css.map */

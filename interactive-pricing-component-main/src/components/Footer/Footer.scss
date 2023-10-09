@@ -1,0 +1,16 @@
+.provisions > * {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    font-size: 12px;
+    color: hsl(225, 20%, 60%);
+}
+
+.footer {
+    border-top: 1px solid hsl(224, 65%, 95%);
+}
+
+.footer button:active {
+    transition: 0.1s;
+    transform: scale(0.98);
+}
