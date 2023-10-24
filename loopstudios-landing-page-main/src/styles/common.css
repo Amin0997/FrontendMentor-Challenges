@@ -4,3 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .see-all_link {
+        @apply w-40 h-10 uppercase border-[1px] transition ease-in-out border-black flex items-center justify-center font-Alata font-normal text-sm tracking-[5px] 
+            hover:bg-black hover:text-white max-md:hidden;
+    }
+}

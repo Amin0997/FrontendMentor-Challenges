@@ -1,0 +1,42 @@
+.leader {
+    @apply h-[500px] max-w-[1111px] mb-24 flex relative items-end justify-end self-center
+            max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:h-full max-md:mb-12;
+
+    &__img {
+        @apply bg-mainInteractiveDesktop bg-no-repeat w-[1111px] h-full flex
+                max-xl:p-0 max-xl:w-[650px] max-xl:h-[400px] max-xl:bg-cover
+                max-md:bg-mainInteractiveMobile max-md:w-[500px] max-md:h-[300px] max-md:bg-cover
+                max-sm:w-[320px] max-sm:h-[200px];
+    }
+
+    &__txt {
+        @apply absolute max-w-[541px] max-h-[317px] pt-24 pl-24 bg-white flex flex-col 
+                max-xl:static max-xl:p-0 max-xl:text-center max-xl:items-center max-xl:pt-10;
+
+    &-title {
+        @apply text-5xl font-Josefin font-light uppercase mb-6
+                max-sm:text-3xl max-sm:mb-4;
+    }
+    }
+}
+
+.creations__list {
+    @apply flex gap-7 flex-wrap justify-center max-w-screen-xl self-center
+            max-md:gap-y-6;
+
+    &_item {
+        @apply relative flex items-end cursor-pointer text-white shrink-0
+                max-md:w-[327px] max-md:h-[120px];
+
+        &_cover-container {
+            @apply absolute flex items-end w-full h-full bg-textGreyBg transition ease-in hover:text-black hover:bg-textWhiteBg;
+
+            &_txt {
+                @apply mx-10 mb-8 font-Josefin uppercase text-[32px]
+                max-md:m-5 max-md:text-2xl max-md:basis-2/5;
+            }
+        }
+    }
+}
+
+

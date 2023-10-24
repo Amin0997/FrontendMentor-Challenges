@@ -1,0 +1,21 @@
+.footer {
+    @apply h-40 bg-black text-white py-11 px-[165px] grid grid-cols-2 justify-between 
+            max-md:grid-cols-1 max-md:justify-items-center max-md:p-[52px] max-md:h-fit max-md:gap-y-7;
+
+    &__list {
+        @apply flex gap-x-[32px] text-white font-Alata capitalize text-[15px] font-normal leading-6 
+                        max-md:flex-col max-md:gap-y-4;
+    }
+
+    &__list-item {
+        @apply relative flex justify-center transition ease-in-out
+                before:w-5 before:h-0.5 before:bg-white before:absolute before:top-8 before:hidden 
+                hover:before:inline-block;
+    }
+
+    &__rights-txt {
+        @apply text-sm opacity-50 font-normal leading-6 font-Alata justify-self-end max-md:justify-self-center;
+    }
+
+}
+

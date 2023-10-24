@@ -1,0 +1,22 @@
+.header {
+    @apply bg-blend-multiply bg-top bg-cover w-full min-h-[650px] bg-slate-400 bg-headerBgDesktop px-[11.5%] py-[4.5%] text-white
+            max-md:pt-10;
+
+    &__title {
+        @apply max-w-[650px] h-[278px] p-10 uppercase mt-[130px] text-[72px] font-light leading-[65px] border-2 border-white flex items-center
+        max-md:text-5xl max-sm:text-4xl max-sm:p-6;
+    }
+
+    .nav__mobile_active {
+        @apply max-md:z-50 max-md:fixed max-md:w-screen max-md:h-screen max-md:bg-black max-md:top-0 max-md:left-0 max-md:flex-col max-md:items-start max-md:p-6;
+
+        &-list {
+            @apply max-md:left-0 max-md:flex-col max-md:gap-y-6 max-md:text-2xl max-md:relative max-md:top-[30%] max-md:font-light max-md:uppercase max-md:items-start;
+
+            &_item {
+                @apply relative flex justify-center before:w-6 before:h-0.5 before:bg-white before:absolute before:top-8 before:hidden hover:before:inline-block;
+            }
+        }
+    }
+}
+
