@@ -1,0 +1,15 @@
+.header {
+    
+    &__input-label {
+        @apply grid col-span-2 relative pl-8 py-2.5 bg-white rounded-2xl items-center auto-width cursor-pointer dark:bg-[#1E2A47];
+    }
+
+    &__input {
+        @apply w-[400px] bg-inherit mx-6 text-lg font-normal leading-6 cursor-pointer 
+        focus:outline-none focus:cursor-text placeholder:text-vkColor dark:text-white dark:placeholder:text-white;
+    }
+}
+
+.auto-width {
+    grid-template-columns: auto 1fr auto;
+}

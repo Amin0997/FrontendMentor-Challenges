@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .card__statistic {
+        @apply flex flex-col text-[13px] font-normal text-vkColor dark:text-white;
+    }
+
+    .card__link {
+        @apply flex gap-x-4 text-[15px] font-normal text-vkColor dark:text-white;
+    }
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+}
