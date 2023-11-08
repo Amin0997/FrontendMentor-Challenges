@@ -18,11 +18,15 @@ export default {
 			VeryLightGray: "hsl(228, 33%, 97%)"
 		},
 		backgroundColor: {
-			VeryLightGray: "hsl(228, 33%, 97%)"
+			VeryLightGray: "hsl(228, 33%, 97%)",
+			ModerateBlue: "hsl(238, 40%, 52%)"
 		},
 		fill: {
 			LightGrayishBlue: "hsl(239, 57%, 85%)",
 			GrayishBlue: "hsl(211, 10%, 45%)"
+		},
+		borderColor: {
+			VeryLightGray: "hsl(228, 33%, 97%)"
 		},
 		gridTemplateColumns: {
 			custom : '40px 1fr'

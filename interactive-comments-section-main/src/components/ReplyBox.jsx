@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { PlusSvg, MinusSvg, EditSvg, DeleteSvg, ReplySvg } from '../assets/images/SvgIcons'
 import avatar from '../assets/images/avatars/image-juliusomo.png'
 
-export default function CommentBox({ id, content, createdAt, score, userImg, userName}) {
-    console.log(userName)
+export default function ReplyBox({ id, content, createdAt, score, userImg, userName}) {
     const lsNum = parseInt(localStorage.getItem(userName));
     const [count, setCount] = useState(lsNum ? lsNum : score);
-
     // reply btn status
     const [isReplying, setIsReplying] = useState(false);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
@@ -28,8 +26,9 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
     }
 
     return (
-        <>
-        <div id={id} className="w-[730px] h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6 my-3">
+        <div className='border-l-2 py-2 ml-10'>
+        <div id={id} className="w-[640px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center rounded-xl bg-white
+                                ml-12 px-6 py-6 gap-x-6 ">
             <section className="h-[100px] flex flex-col row-span-2 justify-center items-center -mt-7 gap-y-2 bg-VeryLightGray rounded-xl">
                 <button 
                     className='fill-LightGrayishBlue px-1 py-2 hover:fill-GrayishBlue'
@@ -73,21 +72,20 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
         </div>
 
         {isReplying && (
-            <section className='w-[730px] h-[145px p-6 mt-2 mb-2 bg-white flex rounded-lg'>
+            <section className='w-[640px] h-[145px p-6 mt-2 ml-12 bg-white flex rounded-lg'>
                 <img src={avatar} alt="" className='h-10 mr-4'/>
                 <textarea 
-                    className='w-[520px] h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none overflow-auto'
+                    className='w-[420px] h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none'
                     name="" 
                     id=""
-                    placeholder='Comment DJAZ'
                     value={comment}
                     onChange={(e) => {setComment(e.target.value)}}
                     >
-                        {userName}
+                        {replyingToUser}
                     </textarea>
                     <button className='w-[105px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white -mt-1'>reply</button>
             </section>
         )}
-        </>
+        </div>
     )
 }
