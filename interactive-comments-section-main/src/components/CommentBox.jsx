@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { PlusSvg, MinusSvg, EditSvg, DeleteSvg, ReplySvg } from '../assets/images/SvgIcons'
-import avatar from '../assets/images/avatars/image-juliusomo.png'
 
-export default function CommentBox({ id, content, createdAt, score, userImg, userName}) {
-    console.log(userName)
+export default function CommentBox({ 
+    id, 
+    content, 
+    createdAt, 
+    score, 
+    userImg, 
+    userName,
+    currentUserImg,
+    onReply }) {
+
     const lsNum = parseInt(localStorage.getItem(userName));
     const [count, setCount] = useState(lsNum ? lsNum : score);
 
     // reply btn status
     const [isReplying, setIsReplying] = useState(false);
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     // add comment
     const replyingToUser = userName ? `@${userName}, ` : "";
@@ -27,9 +33,22 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
         }
     }
 
+    const handleReply = () => {
+        onReply({
+            id,
+            content: comment,
+            userName,
+            createdAt,
+            score: count,
+        });
+        setComment(replyingToUser);
+        setIsReplying(false);
+    };
+
+
     return (
         <>
-        <div id={id} className="w-[730px] h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6 my-3">
+        <div id={id} className="w-[730px] h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6">
             <section className="h-[100px] flex flex-col row-span-2 justify-center items-center -mt-7 gap-y-2 bg-VeryLightGray rounded-xl">
                 <button 
                     className='fill-LightGrayishBlue px-1 py-2 hover:fill-GrayishBlue'
@@ -39,7 +58,7 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
                 </button>
                 <p 
                     className='text-base font-bold text-ModerateBlue'
-                    onChange={localStorage.setItem(userName, count)}>
+                    onChange={localStorage.setItem(userName + id, count)}>
                     {count}
                 </p>
                 <button 
@@ -57,10 +76,9 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
                 </div>
                 <button 
                     className={`flex items-center relative gap-x-2 text-ModerateBlue tracking-tighter transition-opacity
-                                hover:opacity-50 ${isButtonClicked ? 'opacity-50 hover:opacity-100' : ''}`}
+                                hover:opacity-50 ${isReplying ? 'opacity-50 hover:opacity-100' : ''}`}
                     onClick={() => {
                         setIsReplying(!isReplying)
-                        setIsButtonClicked(!isButtonClicked)
                     }}>
                     {ReplySvg}
                     <span className=' font-medium text-base tracking-wide'>Reply</span>
@@ -73,19 +91,21 @@ export default function CommentBox({ id, content, createdAt, score, userImg, use
         </div>
 
         {isReplying && (
-            <section className='w-[730px] h-[145px p-6 mt-2 mb-2 bg-white flex rounded-lg'>
-                <img src={avatar} alt="" className='h-10 mr-4'/>
+            <section className='w-[730px] h-[145px] p-6 mt-2 mb-2 bg-white flex rounded-lg'>
+                <img src={currentUserImg} alt="" className='h-10 mr-4'/>
                 <textarea 
                     className='w-[520px] h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none overflow-auto'
-                    name="" 
-                    id=""
                     placeholder='Comment DJAZ'
                     value={comment}
                     onChange={(e) => {setComment(e.target.value)}}
                     >
                         {userName}
                     </textarea>
-                    <button className='w-[105px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white -mt-1'>reply</button>
+                    <button 
+                        className='w-[105px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white -mt-1'
+                        onClick={handleReply}
+                        >send
+                    </button>
             </section>
         )}
         </>
