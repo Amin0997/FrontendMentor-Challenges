@@ -1,7 +1,17 @@
 import { useState } from 'react';
 import { PlusSvg, MinusSvg, EditSvg, DeleteSvg, ReplySvg } from '../assets/images/SvgIcons'
 
-export default function ReplyBox({ id, content, createdAt, score, userImg, userName, onReply, currentUserName, currentUserImg}) {
+export default function ReplyBox({ 
+    id, 
+    content, 
+    createdAt, 
+    score, 
+    userImg, 
+    userName, 
+    onReply, 
+    currentUserName, 
+    currentUserImg, 
+    onDelete }) {
     // comment score
     const lsNum = parseInt(localStorage.getItem(userName + id));
     const [count, setCount] = useState(lsNum || score);
@@ -26,19 +36,22 @@ export default function ReplyBox({ id, content, createdAt, score, userImg, userN
         }
     }
 
-
     const handleReply = () => {
         onReply({
             id,
-            content: commentEditing,
+            content: comment,
             userName,
             createdAt,
             score: count,
         });
-        #TODO: ФИГНЯ ТВОРИТСЯ тут РАЗОБРАТЬСЯ!!! Не работает едит и реплай на комменты!
+        setComment(replyingToUser);
         setIsReplying(false);
         setIsEditing(false);
     };
+
+    // const handleDelete = () => {
+    //     onDelete(id);
+    // };
 
     return (
         <>
@@ -71,7 +84,9 @@ export default function ReplyBox({ id, content, createdAt, score, userImg, userN
 {/* DELETE BTN */}
                 {userName === currentUserName ? (
                     <>
-                    <button className='flex items-center gap-x-2 ml-32'
+                    <button 
+                        className='flex items-center gap-x-2 ml-32'
+                        onClick={()=> onDelete(id)}
                         >{DeleteSvg}
                     <span className='font-medium text-base tracking-wide text-red-600 capitalize'>delete</span>
                     </button>
@@ -108,14 +123,15 @@ export default function ReplyBox({ id, content, createdAt, score, userImg, userN
                     name="" 
                     id=""
                     value={isReplying ? comment : commentEditing}
-                    onChange={(e) => {setComment(e.target.value)
-                                    {setCommentEditing(e.target.value)}}
-                    }>
+                    onChange={(e) => {
+                        setComment(e.target.value);
+                        setCommentEditing(e.target.value);
+                    }}>
                     </textarea>
                     <button 
                         className='w-[105px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white'
                         onClick={handleReply}
-                        >reply
+                        >send
                     </button>
             </section>
         )}

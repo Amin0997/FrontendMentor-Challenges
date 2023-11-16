@@ -6,21 +6,32 @@ import ReplyBox from './components/ReplyBox'
 
 export default function App() {
 	const [comments, setComments] = useState(data.comments);
-	const randNum = Math.floor(Math.random()* 100 + 5)
-	#TODO: Разобраться в uuid, могут  id
 
 	const addReply = (commentId, newReply) => {
+		const randNum = Math.floor(Math.random() * 100 + 5);
+		console.log(newReply)
 		setComments((prevComments) =>
-			prevComments.map((comment) =>
-				comment.id === commentId
-					? { ...comment, replies: [...comment.replies, {...newReply, id:randNum}] }
-					: comment
-				)
+		prevComments.map((comment) =>
+			comment.id === commentId
+			? { ...comment, replies: [...comment.replies, {...newReply, id:randNum}],}
+			: comment
+		));
+	};
 
+	// Delete comment or reply
+	const deleteComment = (commentId) => {
+		setComments((prevComments) =>
+			prevComments.filter((comment) => comment.id !== commentId)
 		);
 	};
 
-	console.log(comments)
+	const handleReplyDelete = (deleteReplyId) => {
+		setComments((prevComments) =>
+			prevComments.map((comment) => ({
+			...comment, replies: comment.replies.filter((reply) => reply.id !== deleteReplyId),
+			}))
+		);
+	};
 
 	return (
 		<main className='min-h-screen pt-6 flex flex-col items-center gap-y-4 bg-VeryLightGray font-Rubik'>
@@ -50,7 +61,8 @@ export default function App() {
 								userName={reply.user?.username || data.currentUser.username}
 								currentUserName={data.currentUser.username}
 								currentUserImg={data.currentUser.image.png}
-								onReply={(newReply) => addReply(reply.id, newReply)}
+								onReply={(newReply) => addReply(comment.id, newReply)}
+								onDelete={handleReplyDelete}
 							/>
 						)) : null}
 					</div>
