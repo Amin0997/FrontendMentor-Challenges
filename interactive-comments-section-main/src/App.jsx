@@ -9,7 +9,6 @@ export default function App() {
 
 	const addReply = (commentId, newReply) => {
 		const randNum = Math.floor(Math.random() * 100 + 5);
-		console.log(newReply)
 		setComments((prevComments) =>
 		prevComments.map((comment) =>
 			comment.id === commentId
@@ -18,7 +17,7 @@ export default function App() {
 		));
 	};
 
-	// Delete comment or reply
+	// Delete and reply comment
 	const deleteComment = (commentId) => {
 		setComments((prevComments) =>
 			prevComments.filter((comment) => comment.id !== commentId)
@@ -29,6 +28,17 @@ export default function App() {
 		setComments((prevComments) =>
 			prevComments.map((comment) => ({
 			...comment, replies: comment.replies.filter((reply) => reply.id !== deleteReplyId),
+			}))
+		);
+	};
+
+	// Edit comment
+	const editComment = (editCommentId, editedContent) => {
+		setComments((prevComments) =>
+			prevComments.map((comment) => ({
+			...comment, replies: comment.replies.map((reply) => 
+				editCommentId === reply.id ? {...reply, content: editedContent} : reply
+			)
 			}))
 		);
 	};
@@ -63,6 +73,7 @@ export default function App() {
 								currentUserImg={data.currentUser.image.png}
 								onReply={(newReply) => addReply(comment.id, newReply)}
 								onDelete={handleReplyDelete}
+								onEdit={(editedComment) => editComment(editedComment.id, editedComment.content)}
 							/>
 						)) : null}
 					</div>

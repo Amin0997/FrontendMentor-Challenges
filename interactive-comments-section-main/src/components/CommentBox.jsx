@@ -39,7 +39,7 @@ export default function CommentBox({
             content: comment,
             userName,
             createdAt,
-            score: count,
+            score: 0,
         });
         setComment(replyingToUser);
         setIsReplying(false);
@@ -48,7 +48,7 @@ export default function CommentBox({
 
     return (
         <>
-        <div id={id} className="w-[730px] h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6">
+        <div id={id} className="comment-box w-[730px] h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6">
             <section className="h-[100px] flex flex-col row-span-2 justify-center items-center -mt-7 gap-y-2 bg-VeryLightGray rounded-xl">
                 <button 
                     className='fill-LightGrayishBlue px-1 py-2 hover:fill-GrayishBlue'

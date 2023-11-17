@@ -11,7 +11,8 @@ export default function ReplyBox({
     onReply, 
     currentUserName, 
     currentUserImg, 
-    onDelete }) {
+    onDelete,
+    onEdit }) {
     // comment score
     const lsNum = parseInt(localStorage.getItem(userName + id));
     const [count, setCount] = useState(lsNum || score);
@@ -42,21 +43,26 @@ export default function ReplyBox({
             content: comment,
             userName,
             createdAt,
-            score: count,
+            score: 0,
         });
         setComment(replyingToUser);
         setIsReplying(false);
-        setIsEditing(false);
     };
 
-    // const handleDelete = () => {
-    //     onDelete(id);
-    // };
+    const handleEdit = () => {
+        onEdit({
+            id,
+            content: commentEditing,
+        });
+        setCommentEditing(commentEditing);
+        setIsEditing(false);
+    }
+
 
     return (
         <>
-        <div id={id} className={`w-[640px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center rounded-xl bg-white
-                                ml-12 px-6 py-6 gap-x-6`}>
+        <div id={id} className="reply-box w-[640px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center rounded-xl bg-white
+                                ml-12 px-6 py-6 gap-x-6">
             <section className=" h-[100px] flex flex-col row-span-2 justify-center items-center -mt-7 gap-y-2 bg-VeryLightGray rounded-xl">
                 <button 
                     className='fill-LightGrayishBlue px-1 py-2 hover:fill-GrayishBlue'
@@ -110,24 +116,35 @@ export default function ReplyBox({
                 </button>}
             </header>
 
-            <p className='flex col-start-2 text-base font-normal text-GrayishBlue'>
-                {content}
-            </p>
+            {isEditing ? 
+                <div className='flex flex-col gap-y-2'>
+                    <textarea
+                        className='w-full h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none'
+                        value={commentEditing}
+                        onChange={(e) => setCommentEditing(e.target.value)}
+                    />
+                    <button 
+                        className='w-[95px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white self-end'
+                        onClick={handleEdit}
+                            >update
+                    </button>
+                </div>
+            :
+                    <p className='flex col-start-2 text-base font-normal text-GrayishBlue'>
+                        {content}
+                    </p>
+            }
         </div>
 
-        {(isReplying || isEditing) && (
+        {isReplying && (
             <section className='w-[640px] h-[145px] p-6 mt-2 ml-12 bg-white flex rounded-lg'>
                 <img src={currentUserImg} alt="" className='h-10 mr-4'/>
                 <textarea 
                     className='w-[420px] h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none overflow-auto'
                     name="" 
                     id=""
-                    value={isReplying ? comment : commentEditing}
-                    onChange={(e) => {
-                        setComment(e.target.value);
-                        setCommentEditing(e.target.value);
-                    }}>
-                    </textarea>
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}/>
                     <button 
                         className='w-[105px] h-[48px] rounded-lg bg-ModerateBlue uppercase text-white'
                         onClick={handleReply}
