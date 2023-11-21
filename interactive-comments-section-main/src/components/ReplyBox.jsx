@@ -15,8 +15,7 @@ export default function ReplyBox({
     onDelete,
     onEdit }) {
 
-    // const replyingToUser
-
+        
     // comment score
     const lsNum = parseInt(localStorage.getItem(userName + id));
     const [count, setCount] = useState(lsNum || score);
@@ -26,11 +25,11 @@ export default function ReplyBox({
 
     const [isDeleteConfirmationVisible, setIsDeleteConfirmationVisible] = useState(false);
 
-
     // add comment
-    const [comment, setComment] = useState(`@${userName}, `);
+    const [comment, setComment] = useState(`@${replyingTo} `);
     const [commentEditing, setCommentEditing] = useState(content);
     
+
 
     const increment = () => {
         if (count <= score) {
@@ -45,14 +44,22 @@ export default function ReplyBox({
     }
 
     const handleReply = () => {
+
+        const replyName = comment.trim().split(" ")[0] + ' '
+        const commentText = comment.trim().split(" ").slice(1).join(' ');
         onReply({
             id,
-            content: comment,
+            content: (
+            <p className='col-start-2 text-base font-normal text-GrayishBlue'>
+                <span className='text-ModerateBlue font-bold'>{replyName}</span>
+                {commentText}
+            </p>
+            ),
             userName,
             createdAt,
             score: 0,
         });
-        // setComment(replyingToUser);
+        setComment(`@${replyingTo} `);
         setIsReplying(false);
     };
 
@@ -107,6 +114,7 @@ export default function ReplyBox({
                         className='flex items-center gap-x-2 ml-28'
                         onClick={()=> {
                             setIsDeleteConfirmationVisible(true)
+                            document.body.classList.add('overflow-hidden')
                         }}
                         >{DeleteSvg}
                     <span className='font-medium text-base tracking-wide text-red-600 capitalize'>delete</span>
@@ -148,7 +156,7 @@ export default function ReplyBox({
                 <p className='col-start-2 text-base font-normal text-GrayishBlue'>
                     {replyingTo && 
                         <span className="text-ModerateBlue font-semibold mr-1">{`@${replyingTo} `}</span>}
-                    <span className="content">{content}</span>
+                    {content}
                 </p>
             }       
         </div>
@@ -175,22 +183,21 @@ export default function ReplyBox({
                     <p className='text-GrayishBlue col-span-2 leading-6 -mt-2'>Are you sure you want to delete this comment? This will remove the comment and can't be undone.</p>
                     <button 
                         className='uppercase bg-gray-600 rounded-lg text-white'
-                        onClick={() => setIsDeleteConfirmationVisible(false)}
+                        onClick={() => {
+                            setIsDeleteConfirmationVisible(false)
+                            document.body.classList.remove('overflow-hidden')}}
                     >no, cancel
                     </button>
                     <button 
                         className='uppercase bg-red-600 rounded-lg text-white'
                         onClick={() => {
                             onDelete(id)
+                            document.body.classList.remove('overflow-hidden')
                             setIsDeleteConfirmationVisible(false)
                         }}
                     >yes, delete
                     </button>
                 </div>
-                <style>{`
-                    body {
-                        overflow: hidden;
-                }`}</style>
             </div>
             
         )}

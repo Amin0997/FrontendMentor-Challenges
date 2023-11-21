@@ -102,7 +102,9 @@ export default function CommentBox({
                     <>
                     <button 
                         className='flex items-center gap-x-2 ml-48'
-                        onClick={()=> setIsDeleteConfirmationVisible(true)}
+                        onClick={()=> {
+                            setIsDeleteConfirmationVisible(true)
+                            document.body.classList.add('overflow-hidden')}}
                         >{DeleteSvg}
                     <span className='font-medium text-base tracking-wide text-red-600 capitalize'>delete</span>
                     </button>
@@ -153,7 +155,9 @@ export default function CommentBox({
                     className='w-[520px] h-24 py-2.5 px-5 -mt-1 mr-4 border-2 border-VeryLightGray rounded-lg resize-none overflow-auto'
                     placeholder='Comment DJAZ'
                     value={comment}
-                    onChange={(e) => {setComment(e.target.value)}}
+                    onChange={(e) => {
+                        setComment(e.target.value)
+                        }}
                     >
                         {userName}
                     </textarea>
@@ -172,22 +176,21 @@ export default function CommentBox({
                     <p className='text-GrayishBlue col-span-2 leading-6 -mt-2'>Are you sure you want to delete this comment? This will remove the comment and can't be undone.</p>
                     <button 
                         className='uppercase bg-gray-600 rounded-lg text-white'
-                        onClick={() => setIsDeleteConfirmationVisible(false)}
+                        onClick={() => {
+                            setIsDeleteConfirmationVisible(false)
+                            document.body.classList.remove('overflow-hidden')}}
                     >no, cancel
                     </button>
                     <button 
                         className='uppercase bg-red-600 rounded-lg text-white'
                         onClick={() => {
                             onDelete(id)
+                            document.body.classList.remove('overflow-hidden')
                             setIsDeleteConfirmationVisible(false)
                         }}
                     >yes, delete
                     </button>
                 </div>
-                <style>{`
-                    body {
-                        overflow: hidden;
-                }`}</style>
             </div>
         )}
         </>

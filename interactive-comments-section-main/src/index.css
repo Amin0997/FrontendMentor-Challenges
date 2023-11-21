@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.overflow-hidden {
+    overflow: hidden;
+}
+
 .reply-box ::-webkit-scrollbar {
     width: 0;
 }
