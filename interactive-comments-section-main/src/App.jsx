@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import './App.css'
 import data from '../data.json'
 import CommentBox from './components/CommentBox'
 import ReplyBox from './components/ReplyBox'
 
 export default function App() {
-	const [comments, setComments] = useState(data.comments);
+	const [comments, setComments] = useState([]);
 	const [newComment, setNewComment] = useState('');
+
+	useEffect(() => {
+		localStorage.getItem("comments") !== null
+			? setComments(JSON.parse(localStorage.getItem("comments")))
+			: setComments(data.comments);
+		}, []);
+
+	useEffect(() => {
+		localStorage.setItem("comments", JSON.stringify(comments));
+		}, [comments]);
 
 	const addComment = () => {
 		const randNum = Math.floor(Math.random() * 100 + 5);
@@ -28,18 +38,23 @@ export default function App() {
 		]);
 		setNewComment('');
 	};
-	
-	
 
 	const addReply = (commentId, newReply) => {
 		const randNum = Math.floor(Math.random() * 100 + 5);
 		setComments((prevComments) =>
 		prevComments.map((comment) =>
-			comment.id === commentId
-			? { ...comment, replies: [...comment.replies, {...newReply, id:randNum}],}
-			: comment
-		));
-	};
+		comment.id === commentId
+        ? {
+            ...comment,
+            replies: [
+				...comment.replies,
+				{ ...newReply, id: randNum, score: 0 },
+            ],
+		}
+        : comment
+    )
+);
+};
 
 	// ===== Delete comment and reply =====
 	const handleDeleteComment = (commentId) => {
@@ -61,7 +76,9 @@ export default function App() {
 		setComments((prevComments) =>
 			prevComments.map((comment) => ({
 			...comment, replies: comment.replies.map((reply) => 
-				editCommentId === reply.id ? {...reply, content: editedContent} : reply
+				editCommentId === reply.id 
+				? {...reply, content: editedContent} 
+				: reply
 			)
 			}))
 		);
@@ -99,7 +116,7 @@ export default function App() {
 							<ReplyBox
 								key={reply.id}
 								id={reply.id}
-								score={reply.score || 0}
+								score={reply.score}
 								replyingTo={reply.replyingTo}
 								content={reply.content}
 								createdAt={reply.createdAt}

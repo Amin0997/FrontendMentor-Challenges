@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { PlusSvg, MinusSvg, EditSvg, DeleteSvg, ReplySvg } from '../assets/images/SvgIcons'
 
 export default function ReplyBox({ 
@@ -15,10 +15,8 @@ export default function ReplyBox({
     onDelete,
     onEdit }) {
 
-        
     // comment score
-    const lsNum = parseInt(localStorage.getItem(userName + id));
-    const [count, setCount] = useState(lsNum || score);
+    const [count, setCount] = useState(score);
     // reply and edit btns status
     const [isReplying, setIsReplying] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
@@ -26,10 +24,19 @@ export default function ReplyBox({
     const [isDeleteConfirmationVisible, setIsDeleteConfirmationVisible] = useState(false);
 
     // add comment
-    const [comment, setComment] = useState(`@${replyingTo} `);
+    const [comment, setComment] = useState(`@${userName} `);
     const [commentEditing, setCommentEditing] = useState(content);
-    
 
+    useEffect(() => {
+        const storedCount = localStorage.getItem(`${userName}-${id}`);
+        if (storedCount !== null) {
+            setCount(parseInt(storedCount));
+        }
+    }, [userName, id]);
+
+    useEffect(() => {
+        localStorage.setItem(`${userName}-${id}`, count);
+    }, [count, userName, id]);
 
     const increment = () => {
         if (count <= score) {
@@ -43,23 +50,22 @@ export default function ReplyBox({
         }
     }
 
-    const handleReply = () => {
+    const replyName = `@${replyingTo}`;
+    const commentText = comment.trim().split(" ").slice(1).join(' ');
 
-        const replyName = comment.trim().split(" ")[0] + ' '
-        const commentText = comment.trim().split(" ").slice(1).join(' ');
+    
+    const handleReply = () => {
         onReply({
             id,
-            content: (
-            <p className='col-start-2 text-base font-normal text-GrayishBlue'>
-                <span className='text-ModerateBlue font-bold'>{replyName}</span>
-                {commentText}
-            </p>
-            ),
-            userName,
-            createdAt,
-            score: 0,
+            content: 
+                (comment.trim().split(" ").length === 1 
+                ? (comment === (`@${userName} `) ? '' : comment) 
+                : commentText),
+            replyingTo: userName,
+            createdAt: 'Tolko chto',
+            score: count,
         });
-        setComment(`@${replyingTo} `);
+        setComment(`@${userName} `);
         setIsReplying(false);
     };
 
@@ -72,20 +78,19 @@ export default function ReplyBox({
         setIsEditing(false);
     }
 
-
     return (
         <>
         <div id={id} className="reply-box w-[640px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center rounded-xl bg-white
                                 ml-12 px-6 py-6 gap-x-6">
             <section className=" h-[100px] flex flex-col row-span-2 justify-center items-center -mt-7 gap-y-2 bg-VeryLightGray rounded-xl">
-                <button 
+            <button 
                     className='fill-LightGrayishBlue px-1 py-2 hover:fill-GrayishBlue'
                     onClick={increment}>
                     {PlusSvg}
                 </button>
                 <p 
                     className='text-base font-bold text-ModerateBlue'
-                    onChange={localStorage.setItem(userName, count)}>
+                >
                     {count}
                 </p>
                 <button 
@@ -152,13 +157,15 @@ export default function ReplyBox({
                             >update
                     </button>
                 </div>
+            
             :
                 <p className='col-start-2 text-base font-normal text-GrayishBlue'>
-                    {replyingTo && 
-                        <span className="text-ModerateBlue font-semibold mr-1">{`@${replyingTo} `}</span>}
+                    <span className="text-ModerateBlue font-semibold mr-1">
+                        {replyName}
+                    </span>
                     {content}
                 </p>
-            }       
+            }
         </div>
 
         {isReplying && (
@@ -191,6 +198,7 @@ export default function ReplyBox({
                     <button 
                         className='uppercase bg-red-600 rounded-lg text-white'
                         onClick={() => {
+                            localStorage.removeItem(`${userName}-${id}`)
                             onDelete(id)
                             document.body.classList.remove('overflow-hidden')
                             setIsDeleteConfirmationVisible(false)

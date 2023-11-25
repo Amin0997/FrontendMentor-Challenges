@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PlusSvg, MinusSvg, EditSvg, DeleteSvg, ReplySvg } from '../assets/images/SvgIcons'
 
 export default function CommentBox({ 
@@ -14,21 +14,29 @@ export default function CommentBox({
     onDelete,
     onEdit}) {
 
-    const lsNum = parseInt(localStorage.getItem(userName));
-    const [count, setCount] = useState(lsNum ? lsNum : score);
+    const [count, setCount] = useState(score);
     const [isEditing, setIsEditing] = useState(false);
 
     // reply btn status
     const [isReplying, setIsReplying] = useState(false);
 
     // add comment
-    const replyingToUser = userName ? `@${userName}, ` : "";
-    const [comment, setComment] = useState(replyingToUser);
+    const [comment, setComment] = useState(`@${userName} `);
     const [commentEditing, setCommentEditing] = useState(content);
 
 
     const [isDeleteConfirmationVisible, setIsDeleteConfirmationVisible] = useState(false);
 
+    useEffect(() => {
+        const storedCount = localStorage.getItem(`${userName}-${id}`);
+        if (storedCount !== null) {
+            setCount(parseInt(storedCount));
+        }
+    }, [userName, id]);
+
+    useEffect(() => {
+        localStorage.setItem(`${userName}-${id}`, count);
+    }, [count, userName, id]);
 
     const increment = () => {
         if (count <= score) {
@@ -42,15 +50,20 @@ export default function CommentBox({
         }
     }
 
+    const commentText = comment.trim().split(" ").slice(1).join(' ');
+
     const handleReply = () => {
         onReply({
             id,
-            content: comment,
-            userName,
-            createdAt,
-            score: 0,
+            content: 
+                (comment.trim().split(" ").length === 1 
+                ? (comment === (`@${userName} `) ? '' : comment) 
+                : commentText),
+            replyingTo: userName,
+            createdAt: 'Tolko chto',
+            score: count,
         });
-        setComment(replyingToUser);
+        setComment(`@${userName} `);
         setIsReplying(false);
     };
 
@@ -74,9 +87,7 @@ export default function CommentBox({
                     >
                     {PlusSvg}
                 </button>
-                <p 
-                    className='text-base font-bold text-ModerateBlue'
-                    onChange={localStorage.setItem(userName + id, count)}>
+                <p className='text-base font-bold text-ModerateBlue'>
                     {count}
                 </p>
                 <button 
@@ -104,7 +115,8 @@ export default function CommentBox({
                         className='flex items-center gap-x-2 ml-48'
                         onClick={()=> {
                             setIsDeleteConfirmationVisible(true)
-                            document.body.classList.add('overflow-hidden')}}
+                            document.body.classList.add('overflow-hidden')
+                        }}
                         >{DeleteSvg}
                     <span className='font-medium text-base tracking-wide text-red-600 capitalize'>delete</span>
                     </button>
@@ -142,9 +154,9 @@ export default function CommentBox({
                     </button>
                 </div>
             :
-                    <p className='flex col-start-2 text-base font-normal text-GrayishBlue'>
-                        {content}
-                    </p>
+                <p className='col-start-2 text-base font-normal text-GrayishBlue'>
+                    {content}
+                </p>
             }
         </div>
 
@@ -178,12 +190,14 @@ export default function CommentBox({
                         className='uppercase bg-gray-600 rounded-lg text-white'
                         onClick={() => {
                             setIsDeleteConfirmationVisible(false)
-                            document.body.classList.remove('overflow-hidden')}}
+                            document.body.classList.remove('overflow-hidden')
+                        }}
                     >no, cancel
                     </button>
                     <button 
                         className='uppercase bg-red-600 rounded-lg text-white'
                         onClick={() => {
+                            localStorage.removeItem(`${userName}-${id}`);
                             onDelete(id)
                             document.body.classList.remove('overflow-hidden')
                             setIsDeleteConfirmationVisible(false)
