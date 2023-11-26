@@ -1,0 +1,12 @@
+.main {
+    @apply min-h-screen pt-6 flex flex-col items-center gap-y-4 bg-VeryLightGray font-Rubik;
+}
+
+.comment-box {
+    @apply w-[730px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center bg-white rounded-xl px-6 py-6 gap-x-6;
+}
+
+.reply-box {
+    @apply w-[640px] min-h-[170px] grid grid-cols-custom grid-rows-custom items-center rounded-xl bg-white
+        ml-12 px-6 py-6 gap-x-6;
+}
