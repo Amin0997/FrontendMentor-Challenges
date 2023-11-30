@@ -1,9 +1,9 @@
 
 
-export default function MainFooter() {
+export default function MainFooter({ todoListCounter }) {
 	return (
 		<footer className="h-[52px] w-full flex items-center bg-inherit text-sm px-6 text-darkGrayishBlue">
-			<p>5 items left</p>
+			<p>{todoListCounter} items left</p>
 
 			<button 
 				className="ml-24"
