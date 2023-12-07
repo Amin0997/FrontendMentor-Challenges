@@ -1,28 +1,43 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
-export default function MainFooter({ todoListCounter, activeListCounter, activeBtnClicked, allBtnClicked, CompletedBtnClicked }) {
+export default function MainFooter({ 
+	todoListCounter, 
+	activeListCounter,
+	completeListCounter,
+	activeBtnClicked,
+	allBtnClicked,
+	completedBtnClicked,
+	clearCompletedClicked }) {
 
-	const [isAllClicked, setIsAllClicked] = useState(false);
+	const [isAllClicked, setIsAllClicked] = useState(true);
 	const [isActiveClicked, setIsActiveClicked] = useState(false);
 	const [isCompletedClicked, setIsCompletedClicked] = useState(false);
 
 
 	return (
 		<footer className="h-[52px] w-full flex items-center bg-inherit text-sm px-6 text-darkGrayishBlue">
-			{isActiveClicked ?
-				<p>{activeListCounter} items left</p>
-			:
+			{isAllClicked && 
 				<p>{todoListCounter} items left</p>
+			}
+			{isActiveClicked && 
+				<p>{activeListCounter} items left</p>
+			}
+			{isCompletedClicked && 
+				<p>{completeListCounter} items left</p>
 			}
 
 			<button 
 				className={`ml-24 ${isAllClicked && 'text-blue-500'}`}
 				onClick={()=> {
-					setIsAllClicked(!isAllClicked)
+					setIsAllClicked(true)
+					allBtnClicked(true)
+
 					setIsActiveClicked(false)
+					activeBtnClicked(false)
+
 					setIsCompletedClicked(false)
-					allBtnClicked(isAllClicked)
+					completedBtnClicked(false)
 				}}
 				>
 				All
@@ -31,10 +46,14 @@ export default function MainFooter({ todoListCounter, activeListCounter, activeB
 			<button 
 				className={`ml-5 ${isActiveClicked && 'text-blue-500'}`}
 				onClick={()=> {
-					setIsActiveClicked(!isActiveClicked)
+					setIsActiveClicked(true)
+					activeBtnClicked(true)
+
 					setIsAllClicked(false)
+					allBtnClicked(false)
+
 					setIsCompletedClicked(false)
-					activeBtnClicked(!isActiveClicked)
+					completedBtnClicked(false)
 				}}
 				>
 				Active
@@ -43,18 +62,25 @@ export default function MainFooter({ todoListCounter, activeListCounter, activeB
 			<button 
 				className={`ml-5 ${isCompletedClicked && 'text-blue-500'}`}
 				onClick={()=> {
-					setIsCompletedClicked(!isCompletedClicked)
+					setIsCompletedClicked(true)
+					completedBtnClicked(true)
+
 					setIsAllClicked(false)
+					allBtnClicked(false)
+
 					setIsActiveClicked(false)
-					CompletedBtnClicked(!isCompletedClicked)
+					activeBtnClicked(false)
 				}}
 				>
 				Completed
 			</button>
 
 			<button 
-				className="ml-14"
-				// onClick={1}
+				className="ml-14 active:text-blue-500"
+				onClick={()=> {
+					clearCompletedClicked(true)
+
+				}}
 				>
 				Clear Completed
 			</button>

@@ -34,11 +34,11 @@ export default function Header({ onTodoValueChange }) {
 
 	return (
 		<header className="min-h-[330px] w-full bg-no-repeat bg-cover flex flex-col items-center
-						bg-headerBgLight dark:bg-headerBgDark">
+						bg-headerBgLight transition-all dark:bg-headerBgDark">
 
 			<section className='flex justify-between w-[540px] mt-[96px]'>
 				<h1 className="text-[42px] font-bold tracking-[13px] text-white">TODO</h1>
-				<button 
+				<button
 					onClick={handleThemeSwitch}>
 					{theme === 'dark' ? sunIcon : moonIcon}
 				</button>
