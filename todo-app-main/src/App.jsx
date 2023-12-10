@@ -11,40 +11,42 @@ function App() {
   const [todoList, setInTodoList] = useState([])
   const [allClicked, setIsAllClicked] = useState(true)
 
+  console.log(todoList)
 
 
   // ========== Active btn ==========
   const [activeList, setInActiveList] = useState([])
   const [isActiveClicked, setIsActiveClicked] = useState()
-  useEffect(() => {
-    setInActiveList(todoList.filter((todoItem) => todoItem.active === true));
-  }, [todoList]);
 
   const updateActiveState = (id, state) => {
     const updatedTodoList = todoList.map((todo) =>
       todo.id === id 
-      ? { ...todo, active: state } 
+      ? { ...todo, active: state, completed: false } 
       : todo
     );
     setInTodoList(updatedTodoList);
   };
+
+  useEffect(() => {
+    setInActiveList(todoList.filter((todoItem) => todoItem.active === true));
+  }, [todoList]);
 
   // ========== Completed btn ==========
   const [completedList, setInCompletedList] = useState([])
   const [isCompletedClicked, setIsCompletedClicked] = useState()
 
-  useEffect(() => {
-    setInCompletedList(todoList.filter((todoItem) => todoItem.completed === true));
-  }, [todoList]);
-
   const updateCompletedState = (id, state) => {
     const updatedTodoList = todoList.map((todo) =>
       todo.id === id 
-      ? { ...todo, completed: state } 
+      ? { ...todo, active: false, completed: state } 
       : todo
     );
     setInTodoList(updatedTodoList);
   };
+
+  useEffect(() => {
+    setInCompletedList(todoList.filter((todoItem) => todoItem.completed === true));
+  }, [todoList]);
 
   // ========== Clear completed btn ========== 
 
@@ -54,6 +56,7 @@ function App() {
     }
   }
 
+  // ========== Add and delete Todo ========== 
 
   const addTodo = (newTodo) => {
     const todoItem = {
@@ -85,11 +88,12 @@ function App() {
           <TodoContainer
             key={todoItem.id}
             id={todoItem.id}
-            allBtnClicked={allClicked}
             todoValue={todoItem.value}
+            todoActiveState={todoItem.active}
+            todoCompletedState={todoItem.completed}
             onDelete={() => deleteTodo(todoItem.id)}
-            todoActive={(state) => updateActiveState(todoItem.id, state)}
-            todoCompleted={(state) => updateCompletedState(todoItem.id, state)}
+            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
+            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
           />
         ))
       }
@@ -99,12 +103,11 @@ function App() {
           <TodoContainer
             key={todoItem.id}
             id={todoItem.id}
-            allBtnClicked={allClicked}
             todoValue={todoItem.value}
-            activeBtnClicked={isActiveClicked}
+            todoActiveState={todoItem.active}
             onDelete={() => deleteTodo(todoItem.id)}
-            todoActive={(state) => updateActiveState(todoItem.id, state)}
-            todoCompleted={(state) => updateCompletedState(todoItem.id, state)}
+            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
+            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
           />
         ))
         }
@@ -114,12 +117,11 @@ function App() {
           <TodoContainer
             key={todoItem.id}
             id={todoItem.id}
-            allBtnClicked={allClicked}
             todoValue={todoItem.value}
-            completedBtnClicked={isCompletedClicked}
+            todoCompletedState={todoItem.completed}
             onDelete={() => deleteTodo(todoItem.id)}
-            todoActive={(state) => updateActiveState(todoItem.id, state)}
-            todoCompleted={(state) => updateCompletedState(todoItem.id, state)}
+            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
+            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
           />
         ))
       }
