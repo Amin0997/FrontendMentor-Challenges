@@ -12,7 +12,9 @@ export default {
       },
       backgroundImage: {
         headerBgDark : 'url(./src/assets/images/bg-desktop-dark.jpg)',
-        headerBgLight : 'url(./src/assets/images/bg-desktop-light.jpg)'
+        headerBgLight : 'url(./src/assets/images/bg-desktop-light.jpg)',
+        headerBgDarkMobile: 'url(./src/assets/images/bg-mobile-dark.jpg)',
+        headerBgLightMobile: 'url(./src/assets/images/bg-mobile-light.jpg)'
       },
       backgroundColor: {
         veryDarkDesaturatedBlue: 'hsl(235, 24%, 19%)',

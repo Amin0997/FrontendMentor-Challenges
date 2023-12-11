@@ -16,7 +16,8 @@ export default function MainFooter({
 
 
 	return (
-		<footer className="h-[52px] w-full px-6 flex items-center bg-inherit text-sm text-darkGrayishBlue">
+		<footer className="h-[52px] w-full px-6 text-center flex items-center bg-inherit text-sm text-darkGrayishBlue
+			max-sm:h-[45px] max-sm:text-[10px] max-sm:px-2">
 			{isAllClicked && 
 				<p>{todoListCounter} items left</p>
 			}
@@ -28,7 +29,7 @@ export default function MainFooter({
 			}
 
 			<button 
-				className={`ml-24 ${isAllClicked && 'text-blue-500'}`}
+				className={`ml-24 max-sm:ml-5 ${isAllClicked && 'text-blue-500'}`}
 				onClick={()=> {
 					setIsAllClicked(true)
 					allBtnClicked(true)
@@ -44,7 +45,7 @@ export default function MainFooter({
 			</button>
 
 			<button 
-				className={`ml-5 ${isActiveClicked && 'text-blue-500'}`}
+				className={`ml-5 max-sm:ml-3 ${isActiveClicked && 'text-blue-500'}`}
 				onClick={()=> {
 					setIsActiveClicked(true)
 					activeBtnClicked(true)
@@ -60,7 +61,7 @@ export default function MainFooter({
 			</button>
 
 			<button 
-				className={`ml-5 ${isCompletedClicked && 'text-blue-500'}`}
+				className={`ml-5 max-sm:ml-3 ${isCompletedClicked && 'text-blue-500'}`}
 				onClick={()=> {
 					setIsCompletedClicked(true)
 					completedBtnClicked(true)
@@ -76,7 +77,7 @@ export default function MainFooter({
 			</button>
 
 			<button 
-				className="ml-14 active:text-blue-500"
+				className="ml-14 max-sm:ml-4 active:text-blue-500"
 				onClick={()=> {
 					clearCompletedClicked(true)
 

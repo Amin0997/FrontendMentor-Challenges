@@ -1,11 +1,14 @@
 .todo__wrapper {
-    @apply w-[540px] h-[65px] px-6 flex items-center justify-between border-b-[1px] border-slate-200 dark:border-slate-700;
+    @apply w-full min-h-[65px] px-6 flex items-center justify-between border-b-[1px] border-slate-200 
+        dark:border-slate-700 max-sm:min-h-[50px] max-sm:py-2 max-sm:px-4;
 }
 
 .todo__active-btn {
-    @apply w-6 h-6 flex items-center justify-center border-slate-400 border-[1px] border-solid border-opacity-20 rounded-full;
+    @apply w-6 h-6 flex items-center justify-center border-slate-400 border-[1px] border-solid border-opacity-20 rounded-full
+        max-sm:w-5 max-sm:h-4;
 }
 
 .todo__text {
-    @apply w-full mx-4 pl-2 text-[18px] font-normal tracking-tight cursor-pointer dark:text-lightGrayishBlue bg-inherit;
+    @apply w-full mx-4 pl-2 text-[18px] font-normal tracking-tight cursor-pointer dark:text-lightGrayishBlue bg-inherit
+        max-sm:text-[15px];
 }

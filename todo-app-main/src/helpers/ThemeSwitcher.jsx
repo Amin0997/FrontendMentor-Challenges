@@ -23,8 +23,8 @@ export default function ThemeSwitcher() {
 
 
 	return (
-		<section className='flex justify-between w-[540px] mt-[96px]'>
-			<h1 className="text-[42px] font-bold tracking-[13px] text-white">TODO</h1>
+		<section className='flex justify-between w-[540px] mt-[96px] max-sm:w-full'>
+			<h1 className="text-[42px] font-bold tracking-[13px] text-white max-sm:text-3xl">TODO</h1>
 			<button
 				onClick={handleThemeSwitch}
 			>

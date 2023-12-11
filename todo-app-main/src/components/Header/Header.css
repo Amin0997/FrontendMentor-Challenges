@@ -1,16 +1,20 @@
 .header {
     @apply min-h-[330px] w-full bg-no-repeat bg-cover flex flex-col items-center
-        bg-headerBgLight transition-all dark:bg-headerBgDark;
+        bg-headerBgLight transition-all dark:bg-headerBgDark 
+        max-sm:px-[6%] max-sm:bg-headerBgLightMobile max-sm:dark:bg-headerBgDarkMobile;
 }
 
 .header__label {
-    @apply w-[540px] h-[64px] mt-7 bg-white dark:bg-veryDarkDesaturatedBlue rounded-md pl-6 flex items-center;
+    @apply w-[540px] h-[64px] mt-7 bg-white dark:bg-veryDarkDesaturatedBlue rounded-md pl-6 flex items-center
+        max-sm:w-full max-sm:h-[50px];
 }
 
 .label__apply-btn {
-    @apply w-6 h-6 border-slate-400 border-[1px] border-solid border-opacity-20 rounded-full;
+    @apply w-6 h-6 border-slate-400 border-[1px] border-solid border-opacity-20 rounded-full
+        max-sm:w-4 max-sm:h-4;
 }
 
 .label__input {
     @apply w-full mx-4 pl-2 text-[18px] text-veryDarkGrayishBlue dark:text-white bg-inherit outline-none placeholder:tracking-tight
+    max-sm:placeholder:text-base
 }
