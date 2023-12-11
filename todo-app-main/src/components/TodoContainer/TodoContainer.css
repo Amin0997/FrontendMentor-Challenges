@@ -1,0 +1,11 @@
+.todo__wrapper {
+    @apply w-[540px] h-[65px] px-6 flex items-center justify-between border-b-[1px] border-slate-200 dark:border-slate-700;
+}
+
+.todo__active-btn {
+    @apply w-6 h-6 flex items-center justify-center border-slate-400 border-[1px] border-solid border-opacity-20 rounded-full;
+}
+
+.todo__text {
+    @apply w-full mx-4 pl-2 text-[18px] font-normal tracking-tight cursor-pointer dark:text-lightGrayishBlue bg-inherit;
+}

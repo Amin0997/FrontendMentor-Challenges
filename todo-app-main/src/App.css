@@ -1,0 +1,7 @@
+.wrapper {
+    @apply bg-veryDarkBlue min-h-screen font-josefin flex flex-col items-center
+}
+
+.main {
+    @apply flex flex-col items-center -mt-14 overflow-hidden rounded-lg bg-white dark:bg-veryDarkDesaturatedBlue
+}

@@ -1,9 +1,9 @@
 import './App.css'
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Header from './components/Header'
-import TodoContainer from './helpers/TodoContainer'
-import MainFooter from './helpers/MainFooter'
+import Header from './components/Header/Header'
+import MainFooter from './components/MainFooter'
+import TodoList from './helpers/TodoList';
 
 function App() {
   
@@ -11,21 +11,10 @@ function App() {
   const [todoList, setInTodoList] = useState([])
   const [allClicked, setIsAllClicked] = useState(true)
 
-  console.log(todoList)
-
-
   // ========== Active btn ==========
   const [activeList, setInActiveList] = useState([])
   const [isActiveClicked, setIsActiveClicked] = useState()
 
-  const updateActiveState = (id, state) => {
-    const updatedTodoList = todoList.map((todo) =>
-      todo.id === id 
-      ? { ...todo, active: state, completed: false } 
-      : todo
-    );
-    setInTodoList(updatedTodoList);
-  };
 
   useEffect(() => {
     setInActiveList(todoList.filter((todoItem) => todoItem.active === true));
@@ -34,15 +23,6 @@ function App() {
   // ========== Completed btn ==========
   const [completedList, setInCompletedList] = useState([])
   const [isCompletedClicked, setIsCompletedClicked] = useState()
-
-  const updateCompletedState = (id, state) => {
-    const updatedTodoList = todoList.map((todo) =>
-      todo.id === id 
-      ? { ...todo, active: false, completed: state } 
-      : todo
-    );
-    setInTodoList(updatedTodoList);
-  };
 
   useEffect(() => {
     setInCompletedList(todoList.filter((todoItem) => todoItem.completed === true));
@@ -68,62 +48,28 @@ function App() {
     setInTodoList([...todoList, todoItem]);
   };
 
-  const deleteTodo = (id) => {
-    const updatedTodoList = todoList.filter((todo) => todo.id !== id);
-    setInTodoList(updatedTodoList);
-  };
-
-
   return (
-    <div className='bg-veryDarkBlue min-h-screen font-josefin flex flex-col items-center'>		
+    <div className='wrapper'>		
 
 			<Header
         onTodoValueChange={addTodo}
       />
 
-      <main className='w-ful flex flex-col items-center -mt-14 overflow-hidden rounded-lg bg-white dark:bg-veryDarkDesaturatedBlue'>
+      <main className='main'>
 
       {
-        (allClicked) && todoList.map((todoItem) => (
-          <TodoContainer
-            key={todoItem.id}
-            id={todoItem.id}
-            todoValue={todoItem.value}
-            todoActiveState={todoItem.active}
-            todoCompletedState={todoItem.completed}
-            onDelete={() => deleteTodo(todoItem.id)}
-            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
-            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
-          />
-        ))
+        (allClicked) && 
+          <TodoList todoList={todoList} setInTodoList={setInTodoList}/>
       }
 
       {
-        (isActiveClicked) && activeList.map((todoItem) => (
-          <TodoContainer
-            key={todoItem.id}
-            id={todoItem.id}
-            todoValue={todoItem.value}
-            todoActiveState={todoItem.active}
-            onDelete={() => deleteTodo(todoItem.id)}
-            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
-            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
-          />
-        ))
+        (isActiveClicked) && 
+          <TodoList todoList={activeList} setInTodoList={setInActiveList}/>
         }
 
       {
-        (isCompletedClicked) && completedList.map((todoItem) => (
-          <TodoContainer
-            key={todoItem.id}
-            id={todoItem.id}
-            todoValue={todoItem.value}
-            todoCompletedState={todoItem.completed}
-            onDelete={() => deleteTodo(todoItem.id)}
-            todoActiveUpdate={(state) => updateActiveState(todoItem.id, state)}
-            todoCompletedUpdate={(state) => updateCompletedState(todoItem.id, state)}
-          />
-        ))
+        (isCompletedClicked) &&
+          <TodoList todoList={completedList} setInTodoList={setInCompletedList}/>
       }
 
         <MainFooter 

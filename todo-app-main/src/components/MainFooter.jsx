@@ -16,7 +16,7 @@ export default function MainFooter({
 
 
 	return (
-		<footer className="h-[52px] w-full flex items-center bg-inherit text-sm px-6 text-darkGrayishBlue">
+		<footer className="h-[52px] w-full px-6 flex items-center bg-inherit text-sm text-darkGrayishBlue">
 			{isAllClicked && 
 				<p>{todoListCounter} items left</p>
 			}
